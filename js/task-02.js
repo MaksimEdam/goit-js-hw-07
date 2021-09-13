@@ -1,7 +1,15 @@
 const ingredients = ['Картошка', 'Грибы', 'Чеснок', 'Помидоры', 'Зелень', 'Приправы'];
-const ulEl = document.querySelector('#ingredients');
+const UlItems = document.querySelector(`#ingredients`);
 
-const list = ingredients.reduce((arr, ingred) => arr + `<li>${ingred}</li>`, '');
 
-ulEl.innerHTML = list;
-console.log(ulEl);
+
+const addListItems = (array) => {
+    const listArray = array.map(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = item;
+        return listItem;
+    })
+    UlItems.append(...listArray);
+}
+
+addListItems(ingredients);

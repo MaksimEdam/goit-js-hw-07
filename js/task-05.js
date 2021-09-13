@@ -1,11 +1,8 @@
-let inputEl = document.querySelector('#name-input');
-inputEl.addEventListener('input', onInputChange);
+const input = document.querySelector("#name-input");
+const output = document.querySelector("#name-output")
 
-let outputEl = document.querySelector('#name-output');
-
-function onInputChange(event) {
-  inputEl = event.currentTarget.value;
-  console.log(inputEl);
-
-  inputEl !== ' ' ? (outputEl.innerText = inputEl.trim()) : 'незнакомец';
+const greeting = (event) => {
+    output.textContent = input.value === "" ? "незнакомец" : event.currentTarget.value;
 }
+
+input.addEventListener("input", greeting);
